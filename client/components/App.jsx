@@ -1,6 +1,8 @@
 import React from 'react'
 import * as api from '../api'
 
+import BookList from './BookList'
+
 export default class App extends React.Component {
 
   constructor(props) {
@@ -12,26 +14,13 @@ export default class App extends React.Component {
 
   componentDidMount() {
     api.getBooks((books) => this.setState({books}))
-
   }
 
   render() {
     return (
       <div>
         <h1>Book Clubbed!</h1>
-        <div className="column">
-          {this.state.books.map((book) => {
-            return (
-              <div className="four columns">
-                <img src={book.image}/>
-                <h3>{book.title}</h3>
-                <li>{book.author}</li>
-                <li>{book.genre}</li>
-                <li>{book.rating}</li>
-              </div>
-            )
-          })}
-        </div>
+        <BookList books={this.state.books} />
       </div>
     )
   }

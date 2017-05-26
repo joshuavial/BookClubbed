@@ -21848,6 +21848,10 @@
 	
 	var api = _interopRequireWildcard(_api);
 	
+	var _BookList = __webpack_require__(189);
+	
+	var _BookList2 = _interopRequireDefault(_BookList);
+	
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -21892,37 +21896,7 @@
 	          null,
 	          'Book Clubbed!'
 	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'column' },
-	          this.state.books.map(function (book) {
-	            return _react2.default.createElement(
-	              'div',
-	              { className: 'four columns' },
-	              _react2.default.createElement('img', { src: book.image }),
-	              _react2.default.createElement(
-	                'h3',
-	                null,
-	                book.title
-	              ),
-	              _react2.default.createElement(
-	                'li',
-	                null,
-	                book.author
-	              ),
-	              _react2.default.createElement(
-	                'li',
-	                null,
-	                book.genre
-	              ),
-	              _react2.default.createElement(
-	                'li',
-	                null,
-	                book.rating
-	              )
-	            );
-	          })
-	        )
+	        _react2.default.createElement(_BookList2.default, { books: this.state.books })
 	      );
 	    }
 	  }]);
@@ -23540,6 +23514,56 @@
 	
 	module.exports = request;
 
+
+/***/ }),
+/* 189 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = function (props) {
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'column bookList' },
+	    props.books.map(function (book) {
+	      return _react2.default.createElement(
+	        'div',
+	        { key: book.id, className: 'four columns' },
+	        _react2.default.createElement('img', { src: book.image }),
+	        _react2.default.createElement(
+	          'h3',
+	          null,
+	          book.title
+	        ),
+	        _react2.default.createElement(
+	          'li',
+	          null,
+	          book.author
+	        ),
+	        _react2.default.createElement(
+	          'li',
+	          null,
+	          book.genre
+	        ),
+	        _react2.default.createElement(
+	          'li',
+	          null,
+	          book.rating
+	        )
+	      );
+	    })
+	  );
+	};
 
 /***/ })
 /******/ ]);
